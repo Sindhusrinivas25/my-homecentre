@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   
+    
+    <c:set var="path" value='${pageContext.request.contextPath}/resources'></c:set>
+    <link rel="icon" type="image/png" href="${path}/images/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="${path}/common/styleNew.css" />
+    <link rel="stylesheet" href="${path}/common/jquery/jquery-ui.css">
+    <link rel="stylesheet" href="${path}/common/bootstrap/bootstrap.min.css">
+
+    <script type="text/javascript" src="${path}/common/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="${path}/common/jquery-ui.js"></script>
+    <script type="text/javascript" src="${path}/common/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="${path}/common/javascript/analytics.js"></script>
+    <script type="text/javascript" src="${path}/common/javascript/gtm.js"></script>
+
+    <title>HCRM</title>
+    <style>
+        body {
+            background-color: white;
+        }
+        .wallet-button {
+            background-image: url('image/add-wallet-btn-large.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            color: white;
+            border: none;
+            padding: 50px 100px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            display: inline-block;
+        }
+        .container {
+            border: 5px outset #CDF80D;
+            background-color: white;    
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img id="homecentrelogid" src="https://i.pinimg.com/originals/17/8c/a3/178ca3a539c83da92a910a4dc2a3f4e5.jpg" width="10%" height="20%" />
+        <h1>SHOP &amp; SAVE</h1>
+        <p>Enter your mobile number<br/> &amp; claim up to &#8377;4000<sup>*</sup><br/>Home Centre Voucher.</p>
+
+        <div class="col-md-3 col-md-offset-1 form-container">
+            <div class="form-group">
+                <input type="text" class="form-control" id="fname" placeholder="Name">
+                <div id="fName_error",align="left"></div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="mobile" placeholder="Mobile">
+                <div id="mobile_error",align="left"></div>
+            </div>
+            <div class="col-md-2 col-md-offset-3"> 
+                <input type="button" id="getOtp" value="Submit" style="background-color: hsl(244, 92%, 56%);" name="getOtp" class="btn btn-info btn-lg"> 
+            </div>
+        </div>
+        <div id="otpResult",align="center"></div>
+
+        <div class="col-md-2 col-md-offset-3">
+            <a href="https://pay.google.com/gp/v/save/eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJnb29nbGUiLCJwYXlsb2FkIjp7ImxveWFsdHlDbGFzc2VzIjpbeyJpZCI6IjMzODgwMDAwMDAwMjIzNjYyODUuY2xhc3Nfb2ZmX3Bhc3MxIiwiaXNzdWVyTmFtZSI6IkhvbWVDZW50ZXIiLCJwcm9ncmFtTG9nbyI6eyJjb250ZW50RGVzY3JpcHRpb24iOnsiZGVmYXVsdFZhbHVlIjp7Imxhbmd1YWdlIjoiZW4tVVMiLCJ2YWx1ZSI6IkxvZ28gZGVzY3JpcHRpb24ifX0sInNvdXJjZVVyaSI6eyJ1cmkiOiJodHRwczovL2ltYWdlLmtoYWxlZWp0aW1lcy5jb20vP3V1aWQ9YzNkOTRlZGEtODczOS01ZGYyLTkzODktNzI5NDI1ZWI3MmE4JmZ1bmN0aW9uPWNyb3ByZXNpemUmdHlwZT1wcmV2aWV3JnNvdXJjZT1mYWxzZSZxPTc1JmNyb3Bfdz0wLjk5OTk5JmNyb3BfaD0wLjk5OTU2Jng9MCZ5PTAmd2lkdGg9MTIwMCZoZWlnaHQ9Njc1In19LCJwcm9ncmFtTmFtZSI6IkxveWFsdHkgUmV3YXJkcyIsInJldmlld1N0YXR1cyI6IlVOREVSX1JFVklFVyJ9XSwibG95YWx0eU9iamVjdHMiOlt7ImFjY291bnRJZCI6IiIsImFjY291bnROYW1lIjoiIiwiYmFyY29kZSI6eyJ0eXBlIjoiUVJfQ09ERSIsInZhbHVlIjoiMDk4NzYifSwiY2xhc3NJZCI6IjMzODgwMDAwMDAwMjIzNjYyODUuY2xhc3Nfb2ZmX3Bhc3MxIiwiaGVyb0ltYWdlIjp7ImNvbnRlbnREZXNjcmlwdGlvbiI6eyJkZWZhdWx0VmFsdWUiOnsibGFuZ3VhZ2UiOiJlbi1VUyIsInZhbHVlIjoiSGVybyBpbWFnZSBkZXNjcmlwdGlvbiJ9fSwic291cmNlVXJpIjp7InVyaSI6Imh0dHBzOi8vZW5jcnlwdGVkLXRibjAuZ3N0YXRpYy5jb20vaW1hZ2VzP3E9dGJuOkFOZDlHY1JUYjNjdUllZW9QeUhmSHpFMXNVb0EtOHdVaHlOMk1sQlFPdyZzIn19LCJpZCI6IjMzODgwMDAwMDAwMjIzNjYyODUub2JqX2hvbWVfY2VudGVyX29mZl9wYXNzZXMyIiwiaW1hZ2VNb2R1bGVzRGF0YSI6W3siaWQiOiJJTUFHRV9NT0RVTEVfSUQiLCJtYWluSW1hZ2UiOnsiY29udGVudERlc2NyaXB0aW9uIjp7ImRlZmF1bHRWYWx1ZSI6eyJsYW5ndWFnZSI6ImVuLVVTIiwidmFsdWUiOiJJbWFnZSBtb2R1bGUgZGVzY3JpcHRpb24ifX0sInNvdXJjZVVyaSI6eyJ1cmkiOiJodHRwczovL2VuY3J5cHRlZC10Ym4wLmdzdGF0aWMuY29tL2ltYWdlcz9xPXRibjpBTmQ5R2NSVGIzY3VJZWVvUHlIZkh6RTFzVW9BLTh3VWh5TjJNbEJRT3cmcyJ9fX1dLCJsaW5rc01vZHVsZURhdGEiOnsidXJpcyI6W3siZGVzY3JpcHRpb24iOiJOZWFyIEJ5IExvY2F0aW9ucyIsImlkIjoiTElOS19NT0RVTEVfVVJJX0lEIiwidXJpIjoiaHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9zZWFyY2g_c2E9WCZzY2FfZXN2PTc2ZTBkMjkwYjA3ZWZhNTUmc2NhX3Vwdj0xJnJsej0xQzFDSFpOX2VuSU45ODlJTjk4OSZ0YnM9bGY6MSxsZl91aTo0JnRibT1sY2wmc3hzcmY9QURMWVdJSWt6MHVhY21EYk16VHlld0NUV2N4QTFsa3prUToxNzI3Njc1Mjg1NTc4JnE9aG9tZStjZW50cmUrbmVhcitieStsb2NhdGlvbnMmcmZsZnE9MSZudW09MTAmdmVkPTJhaFVLRXdpT203ejktLW1JQXhYdDJEZ0dIY1BfRFQ0UWpHcDZCQWdwRUFFJmJpdz0xNTM2JmJpaD02OTUmZHByPTEuMjUjcmxmaT1oZDo7c2k6O212OltbMTMuMTA2NDg1NSw3Ny43Mzg5MjA0XSxbMTIuODc2NTM0MDk5OTk5OTk5LDc3LjU0NDUyNzM5OTk5OTk5XV07dGJzOmxyZjohMW00ITF1MyEybTIhM20xITFlMSEybTEhMWUzITNzSUFFLGxmOjEsbGZfdWk6NCJ9LHsiZGVzY3JpcHRpb24iOiJDYWxsIFVzIiwiaWQiOiJMSU5LX01PRFVMRV9URUxfSUQiLCJ1cmkiOiJ0ZWw6MTgwMCAyMTIgNzUwMCJ9XX0sImxvY2F0aW9ucyI6W3sibGF0aXR1ZGUiOjM3LjQyNDAxNTQ5OTk5OTk5NiwibG9uZ2l0dWRlIjotMTIyLjA5MjU5NTYwMDAwMDAxfV0sImxveWFsdHlQb2ludHMiOnsiYmFsYW5jZSI6eyJpbnQiOjB9LCJsYWJlbCI6IlBvaW50cyJ9LCJzdGF0ZSI6IkFDVElWRSIsInRleHRNb2R1bGVzRGF0YSI6W3siYm9keSI6IiIsImhlYWRlciI6IlVzZSBMb3lhbHR5IGNhcmQgYW5kIGdldCBleGNpdGluZyBvZmZlcnMiLCJpZCI6IlRFWFRfTU9EVUxFX0lEIn1dfV19LCJpc3MiOiJob21lY2VudGVybG95YWx0eWNhcmRAaG9tZWNlbnRyZS00MzMwMDUuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJvcmlnaW5zIjpbInd3dy5leGFtcGxlLmNvbSJdLCJ0eXAiOiJzYXZldG93YWxsZXQifQ.Ru-bjUlgdqEVoVbHVk9nMhc-wd1AAIlmDJkMKL5gfoZs_5esIKFugrAe-pZFfJW_ejZMneHJmA4MYSXVcsFittApMn-ohYf8rM164dr3Jr3CAvTkTMiQlhqbNYOKg7zVE50rmEIkAj1hmW7vX8KpKFy5K4-W155G31Vib_r7V7NiTJETqlK2LvN6QrfAyAj2CngU7knFtrSfiTrhjZiY6SOwHyL7PUGh_YedgncUHGxPiSl7WMvVlzmY4UchITgl6xRtnmWP4UVPKSfTlcZiun5RpWozvOhnVmVqikRAYgDB375KnHmzAwhY0I3G5Tex_UoetbyzfFGpqT070AQwRg" class="wallet-button"></a>
+
+            
+             
+        </div>
+    </div>
+</body>
+</html>
